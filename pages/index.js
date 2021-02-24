@@ -59,7 +59,7 @@ export default function Home({data}) {
 
   const handleSearch = async (ev) => {
     try {
-      const res = await fetch(`${server}/api/books/${term}`);
+      const res = await fetch(`/api/books/${term}`);
       const data = await res.json();
       setBooks(data.books);
       setLastSearch(term)
