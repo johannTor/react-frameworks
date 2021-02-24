@@ -1,0 +1,33 @@
+.book_details {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: rgb(243, 182, 129);
+  padding: 1rem;
+}
+
+.book_name {
+  width: 14rem;
+  height: 16rem;
+  margin: 0 auto;
+}
+
+.book_title {
+  font-size: 24px;
+  font-weight: bold;
+  align-self: center;
+}
+
+.book_descr {
+  padding: 1rem 0;
+  text-align: center;
+  width: 50%;
+  align-self: center;
+  font-weight: 600;
+}
+
+.back_link {
+  align-self: center;
+}
