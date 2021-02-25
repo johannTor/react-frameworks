@@ -1,3 +1,14 @@
+import Cors from 'cors'
+import initMiddleware from '../../../middleware/init-middleware'
+
+const cors = initMiddleware(
+  // You can read more about the available options here: https://github.com/expressjs/cors#configuration-options
+  Cors({
+    // Only allow requests with GET, POST and OPTIONS
+    methods: ['GET'],
+  })
+)
+
 export async function getData(search) {
   try {
     console.log('Trying')
@@ -11,6 +22,7 @@ export async function getData(search) {
 }
 
 export default async function named(req, res) {
+  await cors(req, res)
   const id = req.query.id;
   
   let books = []
