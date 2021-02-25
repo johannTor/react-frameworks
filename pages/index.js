@@ -67,7 +67,7 @@ export default function Home({data}) {
       // const data = await getData(term);
       // const res = await fetch(`https://api.itbook.store/1.0/search/${term}`);
       // const data = await res.json()
-      const res = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_URL}/api/books/${term}`)
+      const res = await fetch(`http://${process.env.NEXT_PUBLIC_LOCAL_URL}/api/books/${term}`)
       const data = await res.json()
       console.log('data: ', data);
       setBooks(data.books);
