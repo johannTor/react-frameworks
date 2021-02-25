@@ -2,10 +2,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import {server} from '../../config/index'
 import {getAllBookIds, getBookData} from '../../lib/books'
-// import {connectToDatabase} from '../util/database'
 import styleInfo from '../../styles/Info.module.css'
-// let ObjectId = require('mongodb').ObjectID;
 
+// NOTE: If a book is added to the database after the build, it won't be generated a dynamic route
 export async function getStaticProps({ params }) {
   const bookData = await getBookData(params.id)
   return {
@@ -15,6 +14,7 @@ export async function getStaticProps({ params }) {
   }
 }
 
+// Pre create pages for dynamic routes based on the book ids
 export async function getStaticPaths() {
   const paths = await getAllBookIds();
   return {

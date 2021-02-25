@@ -2,8 +2,6 @@ import React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
-import {server} from '../config/index'
-// import {connectToDatabase} from '../util/database'
 import stylesUb from '../styles/UB.module.css'
 
 import {getMongoBooks} from '../lib/books'
@@ -33,11 +31,8 @@ export default function user_books({allBooks}) {
   )
 }
 
-export async function getStaticProps() {
-  // const {db} = await connectToDatabase();
+export async function getServerSideProps() {
   const allBooks = await getMongoBooks();
-  // const data = await db.collection('books').find({}).toArray();
-  // const allBooks = JSON.parse(JSON.stringify(data));
   return {
     props: {
       allBooks

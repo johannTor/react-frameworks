@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import {server} from '../config'
-import {getData} from './api/books/[id]'
 import Booklist from '../components/Booklist'
 import styles from '../styles/Home.module.css'
 
@@ -23,7 +21,7 @@ export default function Home({data}) {
     // setNoOfPages(Math.ceil(data.total / 10))
   }, []);
 
-  /* ********** Postponed page navigation code ********** */
+  /* ********** Page navigation code, todo eventually! ********** */
   // Page has changed
   // useEffect(() => {
   //   const getData = async () => {
@@ -60,21 +58,14 @@ export default function Home({data}) {
 
   const handleSearch = async (ev) => {
     try {
-      /* PROBLEM: fetch doesn't seem to work clientside
-         When fetching from internal api the absolute route won't be known when building?
-         WTF?!?!?! 
-         GET OLD CODE FROM GITHUB (works with npm run dev)*/
-      // const data = await getData(term);
-      // const res = await fetch(`https://api.itbook.store/1.0/search/${term}`);
-      // const data = await res.json()
       let res;
+      // A lil check to see if we are on production or not, if so use https
       if(process.env.NEXT_PUBLIC_LOCAL_URL === 'localhost:3000') {
         res = await fetch(`http://${process.env.NEXT_PUBLIC_LOCAL_URL}/api/books/${term}`)
       } else {
         res = await fetch(`https://${process.env.NEXT_PUBLIC_LOCAL_URL}/api/books/${term}`)
       }
       const data = await res.json()
-      console.log('data: ', data);
       setBooks(data.books);
       setLastSearch(term)
       setTerm('')
