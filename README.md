@@ -1,5 +1,7 @@
 # Book browsing app
 
+Live version: https://react-frameworks.vercel.app/
+
 I started out wanting to create a Book app where a user could search and add books to his private collection. Currently there's no feature to add or remove books to your own private collection but it's still fetching from an API and MongoDB. I found an easy-to-work-with API that provides a whole lot of IT related books so I decided to fetch books from that.
 
 https://api.itbook.store/
