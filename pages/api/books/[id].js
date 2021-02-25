@@ -3,7 +3,6 @@ export async function getData(search) {
     console.log('Trying')
     const response = await fetch(`https://api.itbook.store/1.0/search/${search}`);
     const data = await response.json();
-    console.log('after: ', data);
     return data;
   } catch(err) {
     console.log(err);
