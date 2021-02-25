@@ -2,7 +2,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import {server} from '../../config/index'
 import {getAllBookIds, getBookData} from '../../lib/books'
+// import {connectToDatabase} from '../util/database'
 import styleInfo from '../../styles/Info.module.css'
+// let ObjectId = require('mongodb').ObjectID;
 
 export async function getStaticProps({ params }) {
   const bookData = await getBookData(params.id)

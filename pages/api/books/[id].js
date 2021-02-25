@@ -1,15 +1,17 @@
-const getData = async (search) => {
+export async function getData(search) {
   try {
+    console.log('Trying')
     const response = await fetch(`https://api.itbook.store/1.0/search/${search}`);
     const data = await response.json();
+    console.log('after: ', data);
     return data;
   } catch(err) {
     console.log(err);
-    return [{msg: "something went wrong"}]
+    return [{msg: "something went wrong", error: err}]
   }
 }
 
-export default async function handler(req, res) {
+export default async function named(req, res) {
   const id = req.query.id;
   
   let books = []

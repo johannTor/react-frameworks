@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
 import {server} from '../config/index'
+// import {connectToDatabase} from '../util/database'
 import stylesUb from '../styles/UB.module.css'
 
 import {getMongoBooks} from '../lib/books'
@@ -16,7 +17,7 @@ export default function user_books({allBooks}) {
       </Head>
       <div className={stylesUb.book_grid}>
         {allBooks.map((item, index) => (
-          <Link key={index} href={`${server}/user_books/${item._id}`}>
+          <Link key={index} href={`/user_books/${item._id}`}>
             <a className={stylesUb.book_item} key={index}>
               <div className={stylesUb.book_title}>
                 {item.title}
@@ -33,7 +34,10 @@ export default function user_books({allBooks}) {
 }
 
 export async function getStaticProps() {
+  // const {db} = await connectToDatabase();
   const allBooks = await getMongoBooks();
+  // const data = await db.collection('books').find({}).toArray();
+  // const allBooks = JSON.parse(JSON.stringify(data));
   return {
     props: {
       allBooks
