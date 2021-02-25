@@ -31,7 +31,7 @@ export default function Book({bookData}) {
       </div>
       <div className={styleInfo.book_title}>{bookData.foundBook.title}</div>
       <div className={styleInfo.book_descr}>{bookData.foundBook.description}</div>
-      <Link href={`${server}/user_books`}><a className={styleInfo.back_link}>Go Back</a></Link>
+      <Link href={`/user_books`}><a className={styleInfo.back_link}>Go Back</a></Link>
     </div>
   )
 }
