@@ -9,7 +9,7 @@ On the frontpage I use getStaticProps() to fetch the /new endpoint of the API wh
 
 You can also search for books from the API yourself by typing in a book name, keyword or an author. Since the API sends 10 books per page I was going to do this 'fancy' page button navigation at the bottom to allow navigating between all of the results but I decided to put that on hold and just display the first 10.
 
-Under the 'My Books' navigation the user should be able to see their private book collection (this is just a static list from MongoDB for now) which is obtained using getServerSideProps(). Every book in there should link to '/user_books/<book_id>' where each book is displayed with more info. These routes are dynamically generated using getStaticPaths() along with getStaticProps() to retrieve individual book data.
+Under the 'My Books' navigation the user should be able to see their private book collection (this is just a static list from MongoDB for now) which is obtained using getStaticProps() (Should probably be serverSideProps() if the data would update at all). Every book in there should link to '/user_books/<book_id>' where each book is displayed with more info. These routes are dynamically generated using getStaticPaths() along with getStaticProps() to retrieve individual book data.
 
 ## API route support
 Next.js provides an easy way to create API routes for projects. The API routes I created for this app are:

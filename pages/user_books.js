@@ -31,7 +31,7 @@ export default function user_books({allBooks}) {
   )
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const allBooks = await getMongoBooks();
   return {
     props: {
