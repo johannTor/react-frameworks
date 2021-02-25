@@ -2,7 +2,7 @@
 
 Live version: https://react-frameworks.vercel.app/
 
-I started out wanting to create a Book app where a user could search and add books to his private collection. Currently there's no feature to add or remove books to your own private collection but it's still fetching from an API and MongoDB. I found an easy-to-work-with API that provides a whole lot of IT related books so I decided to fetch books from that.
+Using Next.js, I started out wanting to create a Book app where a user could search and add books to his private collection. Currently there's no feature to add or remove books to your own private collection but it's still fetching from an external API and MongoDB. I found an easy-to-work-with API that provides a whole lot of IT related books so I decided to fetch books from that.
 
 https://api.itbook.store/
 
@@ -21,12 +21,11 @@ Next.js provides an easy way to create API routes for projects. The API routes I
 * /api/custom/books/<book_id> : returns a book from MongoDB by id
 
 ## Final thoughts
-I got hung up quite a bit on many simple things like sorting out absolute/relative paths to the internal api and routes in deployment.
-Next.js brought a lot of new concepts to learn including:
+I got hung up quite a bit on many simple things like sorting out absolute/relative paths to the internal api and routes during deployment. A few features Next.js introduced that were important and/or helpful:
 
 Using getStaticProps to load content during build time for quicker rendering.
 
-Using getServerSide props to load content on each request, currently used to get books from the MongoDB.
+Using getServerSideProps to load content on each request.
 
 The css class names are given unique names after it builds so they won't conflict with other classes in different modules which is nice.
 
